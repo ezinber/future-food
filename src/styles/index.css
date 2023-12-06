@@ -3,6 +3,7 @@
   --color-accent-a: #171C11;
   --color-accent-b: #9BC01F;
   --header-height: 48px;
+  --transition-a: .2s ease-in;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
@@ -46,12 +47,11 @@ body {
 
 .hover-opacity {
   opacity: 1;
-  transition: opacity .2s ease-in;
+  transition: opacity var(--transition-a);
 }
 
 .hover-opacity:hover {
   opacity: .6;
-  transition: opacity .2s ease-in;
 }
 
 .header {
@@ -82,13 +82,14 @@ body {
   font-family: Inter, Arial;
   font-weight: 700;
   text-decoration: none;
-  color: var(--color-accent-b);
+  color: var(--color-text-a);
   text-transform: uppercase;
+  transition: all var(--transition-a);
 }
 
-.header__link:target {
-  text-decoration: underline;
-  color: white;
+.header__link_active {
+  color: wheat;
+  color: var(--color-accent-b);
 }
 
 .section {
