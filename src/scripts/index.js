@@ -17,8 +17,11 @@ const handleScroll = (linksArr) => {
   linksArr.forEach((link) => {
     const targetId = link.getAttribute('href').substring(1); // Убираем # из href
     const targetElement = document.getElementById(targetId);
-    console.log(isElementInViewport(targetElement))
+
     if (isElementInViewport(targetElement)) {
+      if (targetElement.classList.contains('fade-in-animation_before')) {
+        targetElement.classList.replace('fade-in-animation_before', 'fade-in-animation_after')
+      }
       link.classList.add('header__link_active');
     } else {
       link.classList.remove('header__link_active');

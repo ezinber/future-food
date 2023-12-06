@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "scp -r ./dist $REMOTE_SERVER:/home/alwyzon/web/static/futurefood/dist"
+    "deploy": "scp -r ./dist $REMOTE_SERVER:/home/alwyzon/web/static/futurefood",
+    "test": "echo $REMOTE_SERVER"
   },
   "devDependencies": {
     "vite": "^5.0.0",

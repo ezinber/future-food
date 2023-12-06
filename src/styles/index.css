@@ -1,11 +1,13 @@
+@import url('./animations.css');
+
 :root {
   --color-text-a: #f9f9f9;
   --color-accent-a: #171C11;
   --color-accent-b: #9BC01F;
   --header-height: 48px;
   --transition-a: .2s ease-in;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -45,6 +47,10 @@ body {
   text-align: center;
 }
 
+.text-justified {
+  text-align: justify;
+}
+
 .hover-opacity {
   opacity: 1;
   transition: opacity var(--transition-a);
@@ -63,6 +69,7 @@ body {
   left: 0;
   right: 0;
   top: 0;
+  z-index: 1;
 }
 
 .header__navigation {
@@ -116,7 +123,7 @@ body {
 .section__text-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .section__text-accent {
@@ -130,16 +137,16 @@ body {
 .section__list {
   max-width: 800px;
   margin: 0;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 16px;
   display: flex;
   flex-direction: column;
   /* list-style: none; */
-  gap: 10px;
+  gap: 16px;
 }
 
 .section__list-title {
-  margin: 0 0 10px;
-  font-size: 20px;
+  margin: 0 0 16px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
 }
