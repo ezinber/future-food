@@ -163,12 +163,28 @@ body {
   color: var(--color-accent-b);
 }
 
-.section_name_reasons .section__list {
-  padding: 0;
-  flex-direction: row;
-  list-style: none;
+.section_name_reasons {
+  max-width: 1184px;
 }
 
-.section_name_reasons .section__list > li {
+.section_name_reasons
+.section__list {
+  padding: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  flex: 1;
+}
+
+.section_name_reasons
+.section__list > li {
+  flex: 1;
+  min-width: 200px;
+}
+
+.section_name_reasons
+.section__text-wrapper {
+  flex-direction: row;
+  flex-wrap: wrap;
   flex: 1;
 }
