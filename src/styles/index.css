@@ -1,6 +1,10 @@
-/* :root {
+:root {
+  --color-text-a: #f9f9f9;
+  --color-accent-a: #171C11;
+  --color-accent-b: #9BC01F;
+  --header-height: 48px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -11,21 +15,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} */
-
-
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #1a1a1a;
   margin: 0;
   display: flex;
   place-items: center;
@@ -33,79 +33,10 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .page {
   min-height: 100vh;
   width: 100%;
-  background-color: #171C11;
+  background-color: var(--color-accent-a);
   color: #f9f9f9;
 }
 
@@ -113,11 +44,58 @@ button:focus-visible {
   text-align: center;
 }
 
+.hover-opacity {
+  opacity: 1;
+  transition: opacity .2s ease-in;
+}
+
+.hover-opacity:hover {
+  opacity: .6;
+  transition: opacity .2s ease-in;
+}
+
+.header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background-color: var(--color-accent-a);
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.header__navigation {
+  flex: 1;
+}
+
+.header__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.header__link {
+  font-family: Inter, Arial;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-accent-b);
+  text-transform: uppercase;
+}
+
+.header__link:target {
+  text-decoration: underline;
+  color: white;
+}
+
 .section {
   width: 100%;
   max-width: 800px;
   min-height: 100vh;
-  padding: 20px;
+  padding: calc(var(--header-height) + 16px) 16px 0;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -127,10 +105,11 @@ button:focus-visible {
 .section__title {
   margin: 0 auto 20px;
   text-align: center;
+  font-family: Cubao, Arial;
   font-size: 32px;
   font-weight: bolder;
   text-transform: uppercase;
-  color: #9BC01F;
+  color: var(--color-accent-b);
 }
 
 .section__text-wrapper {
@@ -145,7 +124,6 @@ button:focus-visible {
 
 .section__text {
   margin: 0;
-  line-height: 1.4;
 }
 
 .section__list {
@@ -162,28 +140,27 @@ button:focus-visible {
   margin: 0 0 10px;
   font-size: 20px;
   font-weight: bold;
-  line-height: 1.4;
   text-align: center;
 }
 
 .section__link {
   text-decoration: none;
-  color: #9BC01F;
+  color: var(--color-accent-b);
   opacity: 1;
   transition: opacity .2s ease-in;
 }
 
 .section__link:hover {
   opacity: .6;
-  color: #9BC01F;
+  color: var(--color-accent-b);
 }
 
-.section_name_why .section__list {
+.section_name_reasons .section__list {
   padding: 0;
   flex-direction: row;
   list-style: none;
 }
 
-.section_name_why .section__list > li {
+.section_name_reasons .section__list > li {
   flex: 1;
 }

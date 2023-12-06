@@ -2,21 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link rel="stylesheet" href="./src/fonts/fonts.css" />
     <link rel="stylesheet" href="./src/styles/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Future Food</title>
   </head>
   <body>
     <div class="page">
-      <header class="header"></header>
+      <header class="header">
+        <nav class="header__navigation">
+          <ul class="header__list">
+            <li><a href="#about" class="header__link hover-opacity">about</a></li>
+            <li><a href="#context" class="header__link hover-opacity">context</a></li>
+            <li><a href="#problem" class="header__link hover-opacity">problem</a></li>
+            <li><a href="#solutions" class="header__link hover-opacity">solutions</a></li>
+            <li><a href="#tendencies" class="header__link hover-opacity">tendencies</a></li>
+            <li><a href="#reasons" class="header__link hover-opacity">reasons</a></li>
+            <li><a href="#share" class="header__link hover-opacity">share</a></li>
+            <li><a href="#meals" class="header__link hover-opacity">meals</a></li>
+            <li><a href="#help" class="header__link hover-opacity">help</a></li>
+          </ul>
+        </nav>
+      </header>
       <main>
         <section class="section">
           <h2 class="section__title">FUTURE FOOD</h2>
           <p class="section__text text-centered">INTRODUCING PLANT BASED OPTIONS IN UNIVERSITY CANTEEN MENUS</p>
         </section>
 
-        <section class="section">
+        <section id="about" class="section">
           <h2 class="section__title">about Vegan Georgia</h2>
           <div class="section__text-wrapper">
             <p class="section__text">Vegan Georgia was founded in 2015 as the first and so far the only NGO in Georgia aimed at protecting farm animals and other representatives of animal kingdom regardless of species. </p>
@@ -30,18 +45,18 @@
           </div>
         </section>
 
-        <section class="section">
+        <section id="context" class="section">
           <h2 class="section__title">the context</h2>
           <div class="section__text-wrapper">
             <p class="section__text"><span class="section__text-accent">With over 235 million students enrolled in higher education worldwide</span> and tens of millions of faculty and staff working at these institutions, universities and colleges are key food providers.  Most universities have a sustainability plan outlining strategies and targets to reduce carbon emissions.</p>
             <p class="section__text">
-              Generation Z (born between 1997-2012), which makes 25% of the whole existing population on the planet and makes it the biggest demographic group at the moment, is known to be the most enthusiastic about plant-based foods. A University of Massachusetts <a href="https://foodinstitute.com/focus/qa-plant-based-menu-innovations-college-students-love/" class="section__link">student dining survey</a> found that students are asking for more plant-based menu items, including burgers, grounds, sausages, pizza toppings etc. Plant-based breakfast options were found to be popular both among vegans and omnivores.
+              Generation Z (born between 1997-2012), which makes 25% of the whole existing population on the planet and makes it the biggest demographic group at the moment, is known to be the most enthusiastic about plant-based foods. A University of Massachusetts <a href="https://foodinstitute.com/focus/qa-plant-based-menu-innovations-college-students-love/" class="section__link hover-opacity">student dining survey</a> found that students are asking for more plant-based menu items, including burgers, grounds, sausages, pizza toppings etc. Plant-based breakfast options were found to be popular both among vegans and omnivores.
             </p>
           </div>
         </section>
 
-        <section class="section">
-          <h2 class="section__title">THE PROBLEM</h2>
+        <section id="problem" class="section">
+          <h2 class="section__title">the problem</h2>
           <div class="section__text-wrapper">
             <p class="section__text">The UN FAO estimate that 10 million hectares of forest are cut down each year. Livestock takes up nearly 80% of global agricultural land, yet produces less than 20% of the world's supply of calories.</p>
             <p class="section__text">At the moment animal agriculture:</p>
@@ -58,8 +73,8 @@
           </div>
         </section>
 
-        <section class="section">
-          <h2 class="section__title">EXISTING SOLUTIONS</h2>
+        <section id="solutions" class="section">
+          <h2 class="section__title">existing solutions</h2>
           <div class="section__text-wrapper">
             <p class="section__text">In 2018, the world’s biggest food production analysis, conducted at the University of Oxford, concluded that rejecting resource-intensive and pollutive animal agriculture, and adopting a plant-based diet, was the best way a person could reduce their own carbon footprint.</p>
             <p class="section__text">Here are the suggested solutions:</p>
@@ -72,8 +87,8 @@
           </div>
         </section>
 
-        <section class="section">
-          <h2 class="section__title">GOOD TENDENCIES</h2>
+        <section id="tendencies" class="section">
+          <h2 class="section__title">good tendencies</h2>
           <div class="section__text-wrapper">
             <ul class="section__list">
               <li class="section__text">In 2011 University of North Texas announced the first all-vegan dining hall in history embracing not only the students of UNT but many other residents of the area.</li>
@@ -85,7 +100,7 @@
           </div>
         </section>
 
-        <section id="why" class="section section_name_why">
+        <section id="reasons" class="section section_name_reasons">
           <h2 class="section__title">why should your university embrace plant based meals</h2>
           <div class="section__text-wrapper">
             <ul class="section__list">
@@ -109,7 +124,7 @@
           </div>
         </section>
 
-        <section class="section">
+        <section id="share" class="section">
           <h2 class="section__title">the share of vegan georgia</h2>
           <div class="section__text-wrapper">
             <p class="section__text">Vegan Georgia participation in campaign involves:</p>
@@ -123,7 +138,7 @@
           </div>
         </section>
 
-        <section class="section">
+        <section id="meals" class="section">
           <h2 class="section__title">plant based meals in your university</h2>
           <div class="section__text-wrapper">
             <p class="section__text">Our chief cooks can offer many healthy, filling and environmentally friendly dishes for your canteen or buffet or even a vending machine.
@@ -151,7 +166,7 @@
           </div>
         </section>
 
-        <section class="section">
+        <section id="help" class="section">
           <h2 class="section__title">how you can help</h2>
           <ul class="section__list">
             <li>
@@ -161,7 +176,7 @@
               <p class="section__text">ask your chiefs in the canteen to engage plant based dishes in the menu</p>
             </li>
             <li>
-              <p class="section__text">sign up for volunteering in Vegan Georgia via special <a class="section__link" href="https://vegangeorgia.org/en/volunteer/" target="_blank">form</a> at VG website</p>
+              <p class="section__text">sign up for volunteering in Vegan Georgia via special <a class="section__link hover-opacity" href="https://vegangeorgia.org/en/volunteer/" target="_blank">form</a> at VG website</p>
             </li>
             <li>
               <p class="section__text">help us finding more likely minded people among students in other universities — it is very likely that you have some friends/relatives/colleagues who knows some students of this kind</p>
@@ -172,7 +187,7 @@
           </ul>
         </section>
       </main>
-      <footer class="footer"></footer>
+      <footer class="section footer"></footer>
     </div>
     <!-- <div id="app"></div> -->
     <!-- <script type="module" src="/main.js"></script> -->
