@@ -73,6 +73,8 @@ body {
 }
 
 .header__navigation {
+  display: flex;
+  justify-content: center;
   flex: 1;
 }
 
@@ -99,11 +101,53 @@ body {
   color: var(--color-accent-b);
 }
 
+.header__burger {
+  display: none;
+  margin: 0 16px 0 auto;
+  padding: 0;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+}
+
+.header__burger::before,
+.header__burger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: var(--color-text-a);
+  top: 50%;
+  left: 0;
+  transform-origin: center;
+  transition: 0.4s;
+}
+
+.header__burger::before {
+  transform: translateY(-8px);
+}
+
+.header__burger::after {
+  transform: translateY(5px);
+}
+
+.header__burger_opened::before {
+  transform: rotate(-45deg);
+}
+
+.header__burger_opened::after {
+  transform: rotate(45deg);
+}
+
 .section {
   width: 100%;
   max-width: 800px;
   min-height: 100vh;
-  padding: calc(var(--header-height) + 16px) 16px 0;
+  padding: calc(var(--header-height) + 16px) 16px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -186,5 +230,55 @@ body {
 .section__text-wrapper {
   flex-direction: row;
   flex-wrap: wrap;
-  flex: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__navigation {
+    position: fixed;
+    justify-content: end;
+    min-height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition-a);
+  }
+
+  .header__navigation_visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .header__navigation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(0 0 0);
+    opacity: .4;
+    backdrop-filter: blur(10px);
+  }
+
+  .header__list {
+    padding-top: var(--header-height);
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+    min-width: 320px;
+    background-color: var(--color-accent-a);
+    z-index: 1;
+  }
+
+  .header__link {
+    font-size: 16px;
+  }
+
+  .header__burger {
+    display: block;
+  }
 }
