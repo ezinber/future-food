@@ -1,3 +1,4 @@
+const header = document.querySelector('.header');
 const headerNav = document.querySelector('.header__navigation');
 const burgerMenu = document.querySelector('.header__burger');
 const links = headerNav.querySelectorAll('.header__link');
@@ -31,9 +32,14 @@ const handleScroll = (linksArr) => {
 }
 
 const handleBurgerMenuClick = () => {
-  headerNav.classList.toggle('header__navigation_visible');
+  header.classList.toggle('header_extended');
   burgerMenu.classList.toggle('header__burger_opened');
 }
+
+// const handleBurgerMenuClick = () => {
+//   headerNav.classList.toggle('header__navigation_visible');
+//   burgerMenu.classList.toggle('header__burger_opened');
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
   // Добавляем обработчик события прокрутки
