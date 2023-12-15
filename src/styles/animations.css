@@ -1,7 +1,6 @@
 .fade-in-animation_before {
   opacity: 0;
   transform: translateY(20px);
-  opacity: 1; /* remove */
 }
 
 .fade-in-animation_after {

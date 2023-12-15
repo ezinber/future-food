@@ -85,6 +85,18 @@ body {
   z-index: -1;
 }
 
+.overlay {
+  position: relative;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent-a1);
+  z-index: -1;
+}
+
 .header {
   /* height: var(--header-height); */
   min-height: 48px;
@@ -211,6 +223,7 @@ body {
 
 .section__subtitle {
   margin: 0;
+  padding: 16px;
   font-size: 24px;
   text-align: center;
 }
@@ -223,7 +236,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding-bottom: 32px;
+  padding: 16px;
+  margin-bottom: 32px;
 }
 
 .section__text-accent {
@@ -266,6 +280,9 @@ body {
   padding:
     calc(var(--header-height) + 16px)
     max(calc(50% - 592px), 16px);
+  background-image: url(../images/reasons.webp);
+  background-size: cover;
+  background-position: center;
 }
 
 .section_name_reasons
@@ -281,6 +298,7 @@ body {
 .section__list > li {
   flex: 1;
   min-width: 200px;
+  padding: 16px;
 }
 
 .section_name_reasons
@@ -302,6 +320,32 @@ body {
   inset: 0;
   background-color: var(--color-accent-a1);
   z-index: -1;
+}
+
+.section_name_support {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  padding:
+    calc(var(--header-height) + 16px)
+    max(calc(50% - 592px), 16px);
+}
+
+.section_name_support::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  background-color: #9BC01F;
+}
+
+.section_name_support > .section__title {
+  grid-row: 1 / 2;
+}
+
+.section_name_support > .section__text-wrapper {
+  grid-row: 2 / 3;
 }
 
 @media screen and (max-width: 648px) {
