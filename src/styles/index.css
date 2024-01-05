@@ -416,17 +416,68 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, min-content);
   grid-auto-flow: column;
+  gap: 16px 32px;
   padding:
     calc(var(--header-height) + 16px)
     max(calc(50% - 592px), 16px);
 }
 
-.section_name_support::before {
+.section_name_support
+.section__list {
+  padding: 0;
+  list-style: none;
+  gap: 24px;
+}
+
+.section_name_support
+.section__list 
+> li {
+  display: flex;
+  margin-right: 32px;
+  padding: 16px;
+  gap: 16px;
+}
+
+.section_name_support
+.section__list 
+> li:nth-of-type(odd) {
+  margin-left: 32px;
+  margin-right: 0;
+}
+
+.section_name_support
+.section__list
+.section__text::first-letter  {
+  text-transform: capitalize;
+}
+
+/* .section_name_support::before {
   content: '';
   position: absolute;
   left: 0;
   height: 100%;
   background-color: #9BC01F;
+} */
+
+.section_name_support svg {
+  --size: 36px;
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  min-width: var(--size);
+  min-height: var(--size);
+  color: var(--color-accent-b);
+  filter: var(--drop-shadow-a);
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .section_name_support {
+    grid-template-columns: auto;
+    grid-auto-flow: row;
+  }
 }
 
 @media screen and (max-width: 640px) {
