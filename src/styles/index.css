@@ -8,6 +8,7 @@
   --header-height: 48px;
   --transition-a: .2s ease-in;
   --drop-shadow-a: drop-shadow(0 0 .5em);
+
   font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -64,7 +65,7 @@ body {
 
 .glass-container {
   position: relative;
-  background: rgba(50, 50, 50, .3);
+  background: rgba(0, 0, 0, .4);
   box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
   border-top: 1px solid rgba(100, 100, 100, .1);
   border-bottom: 1px solid rgba(100, 100, 100, .1);
@@ -200,6 +201,9 @@ body {
 /* block 'section' */
 
 .section {
+  --section-title-font-size: 32px;
+  --section-subtitle-font-size: calc(var(--section-title-font-size) - 8px);
+
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -217,7 +221,7 @@ body {
   margin: 0 auto;
   text-align: center;
   font-family: Cubao, Arial;
-  font-size: 32px;
+  font-size: var(--section-title-font-size);
   font-weight: bolder;
   text-transform: uppercase;
   color: var(--color-accent-b);
@@ -231,11 +235,10 @@ body {
 .section__subtitle {
   margin: 0;
   padding: 16px;
-  font-size: 24px;
+  font-size: var(--section-subtitle-font-size);
   text-align: center;
   text-transform: uppercase;
 }
-
 
 .section__text-wrapper {
   display: flex;
@@ -301,6 +304,10 @@ body {
   inset: 0;
   background-color: var(--color-accent-a1);
   z-index: -1;
+}
+
+.section_name_cover .section__title {
+  font-size: calc(var(--section-title-font-size) + 16px);
 }
 
 /* section 'about' */
@@ -496,12 +503,31 @@ svg,
 } */
 
 .section_name_contact {
+  --basic-padding: 16px; 
+
   display: grid;
+  gap: 0;
   grid-template-rows: repeat(3, min-content);
 }
 
 .section_name_contact > .section__title {
-  /* TODO: finish section */
+  grid-area: 1 / 1 / 2 / 2;
+  align-self: flex-end;
+  padding: 0 var(--basic-padding);
+  margin-bottom: var(--basic-padding);
+  font-size: var(--section-title-font-size);
+}
+
+.section_name_contact > img {
+  width: 100%;
+  grid-area: 1 / 1 / 2 / 2;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.section_name_contact .section__text-wrapper {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -563,6 +589,10 @@ svg,
     display: block;
   }
 
+  .section {
+    --section-title-font-size: 24px;
+  }
+
   .section_name_cover {
     background-image: url(../images/cover-640.webp);
   }
@@ -617,5 +647,9 @@ svg,
   .section_name_support {
     grid-template-columns: 1fr;
     grid-auto-flow: row;
+  }
+
+  .section_name_contact {
+    --basic-padding: 8px;
   }
 }
