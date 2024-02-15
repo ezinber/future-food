@@ -3,6 +3,17 @@ const headerNav = document.querySelector('.header__navigation');
 const burgerMenu = document.querySelector('.header__burger');
 const links = headerNav.querySelectorAll('.header__link');
 
+const handleScrollData = {
+  beforeAnimationClass: 'fade-in-animation_before',
+  afterAnimationClass: 'fade-in-animation_after',
+  activeLinkClass: 'header__link_active',
+}
+
+const handleBurgerMenuClickData = {
+  headerExtendedClass: 'header_extended',
+  burgerMenuOpenedClass: 'header__burger_opened',
+}
+
 const isElementInViewport = (el) => {
   const rect = el.getBoundingClientRect();
   const windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -15,25 +26,40 @@ const isElementInViewport = (el) => {
 }
 
 // Обработчик события прокрутки страницы
-const handleScroll = (linksArr) => {
-  linksArr.forEach((link) => {
-    const targetId = link.getAttribute('href').substring(1); // Убираем # из href
-    const targetElement = document.getElementById(targetId);
+const handleScroll = (linksArr, data) => {
+  const {
+    beforeAnimationClass,
+    afterAnimationClass,
+    activeLinkClass
+  } = data;
 
-    if (isElementInViewport(targetElement)) {
-      if (targetElement.classList.contains('fade-in-animation_before')) {
-        targetElement.classList.replace('fade-in-animation_before', 'fade-in-animation_after')
+  linksArr.forEach((link) => {
+    const linkHref = link.getAttribute('href');
+
+    if (linkHref.startsWith('#')) {
+      const targetId = linkHref.substring(1); // Убираем # из href
+      const targetElement = document.getElementById(targetId);
+
+      if (isElementInViewport(targetElement)) {
+        if (targetElement.classList.contains(beforeAnimationClass)) {
+          targetElement.classList.replace(beforeAnimationClass, afterAnimationClass)
+        }
+        link.classList.add(activeLinkClass);
+      } else {
+        link.classList.remove(activeLinkClass);
       }
-      link.classList.add('header__link_active');
-    } else {
-      link.classList.remove('header__link_active');
     }
   });
 }
 
-const handleBurgerMenuClick = () => {
-  header.classList.toggle('header_extended');
-  burgerMenu.classList.toggle('header__burger_opened');
+const handleBurgerMenuClick = (data) => {
+  const {
+    headerExtendedClass,
+    burgerMenuOpenedClass,
+  } = data;
+
+  header.classList.toggle(headerExtendedClass);
+  burgerMenu.classList.toggle(burgerMenuOpenedClass);
 }
 
 // const handleBurgerMenuClick = () => {
@@ -43,6 +69,6 @@ const handleBurgerMenuClick = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   // Добавляем обработчик события прокрутки
-  burgerMenu.addEventListener('click', handleBurgerMenuClick);
-  window.addEventListener('scroll', () => handleScroll(links));
+  burgerMenu.addEventListener('click', () => handleBurgerMenuClick(handleBurgerMenuClickData));
+  window.addEventListener('scroll', () => handleScroll(links, handleScrollData));
 });
