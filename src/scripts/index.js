@@ -1,24 +1,24 @@
 /**
  * Represents the header element.
- * @type {HTMLElement}
+ * @type {HTMLElement | null}
  */
 const header = document.querySelector('.header');
 /**
  * Represents the navigation element within the header.
- * @type {HTMLElement}
+ * @type {HTMLElement | null}
  */
 const headerNav = document.querySelector('.header__navigation');
 /**
  * Represents the burger menu button within the header.
- * @type {HTMLButtonElement}
+ * @type {HTMLButtonElement | null}
  */
 const burgerMenu = document.querySelector('.header__burger');
+
 /**
  * Represents a collection of header links within the navigation.
  * @type {NodeListOf<HTMLAnchorElement>}
  */
 const links = headerNav.querySelectorAll('.header__link');
-
 
 /**
  * @typedef {Object.<string, string>} StyleData - object with css classes
@@ -90,10 +90,6 @@ const isElementInViewport = (el) => {
  *   @property {string} activeLinkClass - Class to be added to the active link.
  */
 const handleScroll = (linksArr, data) => {
-  /**
-   * Extracting properties from the data object.
-   * @type {string}
-   */
   const {
     beforeAnimationClass,
     afterAnimationClass,
@@ -148,10 +144,6 @@ const handleScroll = (linksArr, data) => {
  *  @property {string} burgerMenuOpenedClass Class to toggle on the burger menu when opened.
  */
 const handleBurgerMenuClick = (data) => {
-  /**
-   * Destructuring properties from the data object.
-   * @type {string}
-   */
   const {
     headerExtendedClass,
     burgerMenuOpenedClass,
