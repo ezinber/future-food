@@ -1,4 +1,16 @@
+/**
+ * Class representing a Header with a burger menu and anchor link highlights.
+ */
 export class Header {
+  /**
+   * Create a Header instance.
+   * @param {Object} options - The options for the header configuration.
+   * @param {string} options.headerSelector - The CSS selector for the header element.
+   * @param {string} options.headerExtendedClass - The class to apply to the header when the burger menu is opened.
+   * @param {string} options.burgerSelector - The CSS selector for the burger menu element.
+   * @param {string} options.burgerOpenedClass - The class to apply to the burger menu when it is opened.
+   * @param {string} options.linkActiveClass - The class to apply to a link when its corresponding section is in view.
+   */
   constructor({
     headerSelector,
     headerExtendedClass,
@@ -6,15 +18,43 @@ export class Header {
     burgerOpenedClass,
     linkActiveClass
   }) {
+    /**
+     * @property {string} headerSelector - The CSS selector for the header element.
+     */
     this.headerSelector = headerSelector;
+
+    /**
+     * @property {string} headerExtendedClass - The class added to the header when the burger menu is opened.
+     */
     this.headerExtendedClass = headerExtendedClass;
+
+    /**
+     * @property {string} burgerSelector - The CSS selector for the burger menu element.
+     */
     this.burgerSelector = burgerSelector;
+
+    /**
+     * @property {string} burgerOpenedClass - The class added to the burger menu when opened.
+     */
     this.burgerOpenedClass = burgerOpenedClass;
+
+    /**
+     * @property {string} linkActiveClass - The class added to a link when its target section is in view.
+     */
     this.linkActiveClass = linkActiveClass;
 
-    this._init()
+    /**
+     * @property {Array<Object>} linksAndTargets - Stores pairs of link elements and their target sections.
+     */
+    this.linksAndTargets = [];
+
+    this._init();
   }
 
+  /**
+   * Collects all anchor links inside the header and maps them to their target sections.
+   * @private
+   */
   _collectLinks() {
     const links = this.headerElement.querySelectorAll('a[href^="#"]');
 
@@ -23,8 +63,6 @@ export class Header {
 
     links.forEach(link => {
       const href = link.getAttribute('href');
-
-      // Get the target element by ID, stripping off the '#' from href
       const targetId = href.slice(1);
       const targetElement = document.getElementById(targetId);
 
@@ -38,43 +76,60 @@ export class Header {
     });
   }
 
-  _isElementInViewport = (el) => {
+  /**
+   * Checks if the provided element is fully or partially in the viewport.
+   * @param {HTMLElement} el - The target element to check.
+   * @returns {boolean} - Whether the element is in the viewport or not.
+   * @private
+   */
+  _isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
-
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
     const isFullyVisible = rect.top >= 0 && rect.bottom <= windowHeight;
-
     const isPartiallyVisible = (rect.top < windowHeight / 2 && rect.bottom >= windowHeight / 2) || (rect.top >= 0 && rect.top < windowHeight / 2);
 
     return isFullyVisible || isPartiallyVisible;
   }
 
-  _handleLinksScroll = () => {
+  /**
+   * Handles scroll events to highlight anchor links whose target sections are visible.
+   * @private
+   */
+  _handleLinksScroll() {
     this.linksAndTargets.forEach(i => {
-      const {
-        link,
-        target
-      } = i;
+      const { link, target } = i;
 
       if (this._isElementInViewport(target)) {
         link.classList.add(this.linkActiveClass);
       } else {
         link.classList.remove(this.linkActiveClass);
       }
-    })
+    });
   }
 
-  _handleBurgerMenuClick = () => {
+  /**
+   * Toggles the burger menu and header classes when the burger menu is clicked.
+   * @private
+   */
+  _handleBurgerMenuClick() {
     this.headerElement.classList.toggle(this.headerExtendedClass);
     this.burgerElement.classList.toggle(this.burgerOpenedClass);
   }
 
+  /**
+   * Sets up event listeners for the burger menu and window scroll events.
+   * @private
+   */
   _setupEventListeners() {
-    this.burgerElement.addEventListener('click', this._handleBurgerMenuClick);
-    window.addEventListener('scroll', this._handleLinksScroll);
+    this.burgerElement.addEventListener('click', this._handleBurgerMenuClick.bind(this));
+    window.addEventListener('scroll', this._handleLinksScroll.bind(this));
   }
 
+  /**
+   * Initializes the header by setting elements and setting up event listeners.
+   * @private
+   */
   _init() {
     this.headerElement = document.querySelector(this.headerSelector);
     this.burgerElement = this.headerElement.querySelector(this.burgerSelector);
