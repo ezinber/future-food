@@ -18,37 +18,12 @@ export class Header {
     burgerOpenedClass,
     linkActiveClass
   }) {
-    /**
-     * @property {string} headerSelector - The CSS selector for the header element.
-     */
     this.headerSelector = headerSelector;
-
-    /**
-     * @property {string} headerExtendedClass - The class added to the header when the burger menu is opened.
-     */
     this.headerExtendedClass = headerExtendedClass;
-
-    /**
-     * @property {string} burgerSelector - The CSS selector for the burger menu element.
-     */
     this.burgerSelector = burgerSelector;
-
-    /**
-     * @property {string} burgerOpenedClass - The class added to the burger menu when opened.
-     */
     this.burgerOpenedClass = burgerOpenedClass;
-
-    /**
-     * @property {string} linkActiveClass - The class added to a link when its target section is in view.
-     */
     this.linkActiveClass = linkActiveClass;
-
-    /**
-     * @property {Array<Object>} linksAndTargets - Stores pairs of link elements and their target sections.
-     */
     this.linksAndTargets = [];
-
-    this._init();
   }
 
   /**
@@ -128,9 +103,9 @@ export class Header {
 
   /**
    * Initializes the header by setting elements and setting up event listeners.
-   * @private
+   * @public
    */
-  _init() {
+  init() {
     this.headerElement = document.querySelector(this.headerSelector);
     this.burgerElement = this.headerElement.querySelector(this.burgerSelector);
 
